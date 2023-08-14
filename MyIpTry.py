@@ -13,6 +13,14 @@ driver.maximize_window()
 ip_message = driver.find_element("xpath", "/html/body").text
 print(ip_message.strip('Current IP Address: '))
 
-time.sleep(5000)
+try:
+    file = open("C:\\Python311\\_external_IP_.txt", "w")
+except:
+    file = open("C:\\Python311\\_external_IP_.txt", "w+")
+
+file.write(ip_message.strip('Current IP Address: '))
+
+
+#time.sleep(5000)
 
 
